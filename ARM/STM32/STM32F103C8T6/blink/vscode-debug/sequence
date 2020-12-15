@@ -1,0 +1,49 @@
+[jerome@pinebook-pro blink]$ /bin/gnu-arm-embedded-toolchain/gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-gdb hello.elf
+GNU gdb (GNU Arm Embedded Toolchain 9-2020-q2-update) 8.3.1.20191211-git
+Copyright (C) 2019 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "--host=aarch64-linux-gnu --target=arm-none-eabi".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello.elf...
+(gdb) target extended-remote localhost:3333
+Remote debugging using localhost:3333
+0x00000000 in ?? ()
+(gdb) load
+Loading section .text, size 0x4b4 lma 0x8000000
+Loading section .data, size 0xc lma 0x80004b4
+Start address 0x800040c, load size 1216
+Transfer rate: 5 KB/sec, 608 bytes/write.
+(gdb) mon reset halt
+target halted due to debug-request, current mode: Thread 
+xPSR: 0x01000000 pc: 0x0800040c msp: 0x20005000
+(gdb) load
+Loading section .text, size 0x4b4 lma 0x8000000
+Loading section .data, size 0xc lma 0x80004b4
+Start address 0x800040c, load size 1216
+Transfer rate: 5 KB/sec, 608 bytes/write.
+(gdb) continue
+Continuing.
+^C
+Program received signal SIGINT, Interrupt.
+main () at hello.c:33
+33              my_delay_1();
+(gdb) break hello.c:32
+Breakpoint 1 at 0x800016e: file hello.c, line 32.
+(gdb) continue
+Continuing.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+Breakpoint 1, main () at hello.c:32
+32              gpio_toggle( GPIOC, GPIO13 );
+(gdb) c
+Continuing.

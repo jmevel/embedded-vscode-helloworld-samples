@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug (OpenOCD)",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            //"preLaunchTask": "make",
+            "runToMain": true,
+            "executable": "hello.elf",
+            "armToolchainPath": "/bin/gnu-arm-embedded-toolchain/gcc-arm-none-eabi-9-2020-q2-update/bin",
+            "device": "STM32F103C8T6 ",
+            "configFiles": [
+                "/usr/share/openocd/scripts/interface/stlink-v2.cfg",
+                "/usr/share/openocd/scripts/target/stm32f1x.cfg"
+            ]
+        }
+    ]
+}
