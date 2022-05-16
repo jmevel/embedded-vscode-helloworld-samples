@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "cargo build --features v2 --target thumbv7em-none-eabihf",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "cargo embed --features v2 --target thumbv7em-none-eabihf",
+            "problemMatcher": [],
+        }
+    ]
+}

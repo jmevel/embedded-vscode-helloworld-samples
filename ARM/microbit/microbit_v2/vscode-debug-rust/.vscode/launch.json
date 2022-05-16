@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "Debug (OpenOCD)",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Flash",
+            "runToEntryPoint": "main",
+            "executable": "${workspaceRoot}/target/thumbv7em-none-eabihf/debug/blinky",
+            "linux": 
+            {
+                "armToolchainPath": "/bin/gnu-arm-embedded-toolchain/gcc-arm-none-eabi-10.3-2021.10/bin",
+                "configFiles": [
+                    "/usr/share/openocd/interface/cmsis-dap.cfg",
+                    "/usr/share/openocd/target/nrf52.cfg"
+                ]
+            },
+            "windows": 
+            {
+                "armToolchainPath": "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin",
+                "configFiles": [
+                    "C:/OpenOCD/scripts/interface/cmsis-dap.cfg",
+                    "C:/OpenOCD/scripts/target/nrf52.cfg"
+                ]
+            }
+        }
+    ]
+}
