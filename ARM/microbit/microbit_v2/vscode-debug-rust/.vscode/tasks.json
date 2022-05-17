@@ -4,13 +4,13 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "cargo build --features v2 --target thumbv7em-none-eabihf",
+            "command": "cargo build --target thumbv7em-none-eabihf",
             "problemMatcher": [],
         },
         {
             "label": "Flash",
             "type": "shell",
-            "command": "cargo embed --features v2 --target thumbv7em-none-eabihf",
+            "command": "cargo embed --target thumbv7em-none-eabihf",
             "problemMatcher": [],
         }
     ]
